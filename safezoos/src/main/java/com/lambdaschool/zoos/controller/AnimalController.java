@@ -45,4 +45,5 @@ public class AnimalController
         ArrayList<CountAnimals> myList = animalService.getCountAnimals();
         return new ResponseEntity<>(myList, HttpStatus.OK);
     }
+
 }
