@@ -5,7 +5,9 @@ import com.lambdaschool.zoos.view.CountAnimals;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ZooRepository extends CrudRepository<Zoo, Long>
 {
     @Modifying
@@ -15,5 +17,5 @@ public interface ZooRepository extends CrudRepository<Zoo, Long>
     @Query(value = "SELECT COUNT(*) as count FROM zooanimals WHERE zooid = :zooid AND animalid = :animalid", nativeQuery = true)
     CountAnimals checkZooAnimalCombo(long zooid, long animalid);
 
-
+    Zoo findByZooname(String name);
 }
